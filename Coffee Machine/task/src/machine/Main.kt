@@ -3,10 +3,18 @@ package machine
 import java.util.*
 
 val scanner = Scanner(System.`in`)
+var water = 400
+var milk = 540
+var beans = 120
+var cups = 9
+var money = 550
+val supplies = mapOf<Int, IntArray>(1 to intArrayOf(250, 0, 16, 1, 4),
+        2 to intArrayOf(350, 75, 20, 1, 7), 3 to intArrayOf(200, 100, 12, 1, 6))
 
 fun main() {
-    enoughSupplies()
-
+    printStatus()
+    chooseAction()
+    printStatus()
 }
 
 
@@ -57,4 +65,64 @@ fun Int.coffeeSupplies(): Map<String,Int> {
 fun suppliesToCups(water: Int, milk: Int, beans: Int): Int {
     val cups = minOf(water / 200, milk / 50, beans / 15)
     return cups
+}
+
+fun printStatus() {
+    println("The coffee machine has:")
+    println("$water of water")
+    println("$milk of milk")
+    println("$beans of coffee beans")
+    println("$cups of disposable cups")
+    println("$money of money")
+    println()
+    return
+}
+
+fun chooseAction() {
+    print("Write action (buy, fill, take):")
+    val choice = scanner.next()
+    when (choice) {
+        "buy" -> buy()
+        "fill" -> fill()
+        "take" -> take()
+        else -> println("Invalid action")
+    }
+    return
+}
+
+fun buy() {
+    print("What do you want to buy? 1 - Espresso, 2 - Latte, 3 - Cappucino:")
+    val choice = scanner.nextInt()
+    if (choice !in 1..3) {
+        println("Invalid choice")
+        println()
+        return
+    }
+    val coffeeReqs = supplies[choice]
+    water -= coffeeReqs?.get(0)?:0
+    milk -= coffeeReqs?.get(1)?:0
+    beans -= coffeeReqs?.get(2)?:0
+    cups -= coffeeReqs?.get(3)?:0
+    money += coffeeReqs?.get(4)?:0
+    println()
+    return
+
+}
+fun fill() {
+    print("Write how many ml of water you want to add:")
+    water += scanner.nextInt()
+    print("Write how many ml of milk you want to add:")
+    milk += scanner.nextInt()
+    print("Write how many grams of coffee beans you want to add:")
+    beans += scanner.nextInt()
+    print("Write how many disposable cups you want to add:")
+    cups += scanner.nextInt()
+    println()
+    return
+}
+fun take() {
+    println("I gave you \$$money")
+    money = 0
+    println()
+    return
 }
