@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -14,9 +15,13 @@
             <option value="$PROJECT_DIR$/Coffee Machine/task" />
             <option value="$PROJECT_DIR$/Problems/Boxes" />
             <option value="$PROJECT_DIR$/Problems/Collatz conjecture" />
+            <option value="$PROJECT_DIR$/Problems/Constructor property" />
+            <option value="$PROJECT_DIR$/Problems/Currency comparision" />
             <option value="$PROJECT_DIR$/Problems/Date and time formatting" />
+            <option value="$PROJECT_DIR$/Problems/Fix me" />
             <option value="$PROJECT_DIR$/Problems/Just checking" />
             <option value="$PROJECT_DIR$/Problems/The information about a person" />
+            <option value="$PROJECT_DIR$/Problems/The rainbow order" />
             <option value="$PROJECT_DIR$/util" />
           </set>
         </option>

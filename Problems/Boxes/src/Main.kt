@@ -24,6 +24,4 @@ fun main(args: Array<String>) {
         2 -> println("Box 1 > Box 2")
         else -> println("Incomparable")
     }
-
-
 }
